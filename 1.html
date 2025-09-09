@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web前端技术学习打卡表</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .description {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-options {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        .stats {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2575fc;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background-color: #f1f5f9;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        th:hover {
+            background-color: #e5e9f0;
+        }
+        
+        tr:hover {
+            background-color: #f9fafb;
+        }
+        
+        .category-header {
+            background-color: #dbeafe;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .level-1 { background-color: #e6f7ff; }
+        .level-2 { background-color: #d6f5e3; }
+        .level-3 { background-color: #fff2cc; }
+        .level-4 { background-color: #ffe6cc; }
+        .level-5 { background-color: #ffd6cc; }
+        
+        .checkbox-cell {
+            text-align: center;
+            width: 80px;
+        }
+        
+        input[type="checkbox"] {
+            transform: scale(1.5);
+            cursor: pointer;
+        }
+        
+        .date-cell {
+            width: 120px;
+        }
+        
+        @media (max-width: 768px) {
+            th, td {
+                padding: 10px;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+            
+            .filter-options {
+                flex-wrap: wrap;
+            }
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Web前端技术学习打卡表</h1>
+            <p class="description">每天学习一项技术，记录你的前端成长之路</p>
+        </header>
+        
+        <div class="controls">
+            <div class="filter-options">
+                <label>
+                    <input type="checkbox" id="hideCompleted"> 隐藏已完成
+                </label>
+                <select id="categoryFilter">
+                    <option value="all">所有分类</option>
+                    <option value="HTML5">HTML5</option>
+                    <option value="CSS3">CSS3</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="ES6">ES6+TS</option>
+                    <option value="Axios">Axios</option>
+                    <option value="Vue.js">Vue.js</option>
+                    <option value="ElementPlus">ElementPlus</option>
+                    <option value="ECharts">ECharts</option>
+                    <option value="Node.js">Node.js</option>
+                </select>
+                <select id="levelFilter">
+                    <option value="all">所有难度</option>
+                    <option value="1">难度 1</option>
+                    <option value="2">难度 2</option>
+                    <option value="3">难度 3</option>
+                    <option value="4">难度 4</option>
+                    <option value="5">难度 5</option>
+                </select>
+            </div>
+            <button id="resetButton">重置进度</button>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number" id="totalItems">0</div>
+                <div>总项目</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="completedItems">0</div>
+                <div>已完成</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="completionRate">0%</div>
+                <div>完成率</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="last7Days">0</div>
+                <div>近7天完成</div>
+            </div>
+        </div>
+        
+        <table id="learningTable">
+            <thead>
+                <tr>
+                    <th>技术点</th>
+                    <th>分类</th>
+                    <th>难度</th>
+                    <th class="checkbox-cell">完成</th>
+                    <th class="date-cell">完成日期</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- HTML5 -->
+                <tr class="category-header">
+                    <td colspan="5">HTML5</td>
+                </tr>
+                <tr class="level-1" data-category="HTML5" data-level="1">
+                    <td>HTML 基本标签</td>
+                    <td>HTML5</td>
+                    <td>1</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-2" data-category="HTML5" data-level="2">
+                    <td>HTML5 新特性</td>
+                    <td>HTML5</td>
+                    <td>2</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="HTML5" data-level="3">
+                    <td>HTML5 本地存储</td>
+                    <td>HTML5</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                
+                <!-- CSS3 -->
+                <tr class="category-header">
+                    <td colspan="5">CSS3</td>
+                </tr>
+                <tr class="level-1" data-category="CSS3" data-level="1">
+                    <td>CSS 基础语法</td>
+                    <td>CSS3</td>
+                    <td>1</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-1" data-category="CSS3" data-level="1">
+                    <td>盒子模型</td>
+                    <td>CSS3</td>
+                    <td>1</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-2" data-category="CSS3" data-level="2">
+                    <td>浮动与定位</td>
+                    <td>CSS3</td>
+                    <td>2</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="CSS3" data-level="3">
+                    <td>CSS3 新特性</td>
+                    <td>CSS3</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="CSS3" data-level="3">
+                    <td>弹性盒子</td>
+                    <td>CSS3</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="CSS3" data-level="3">
+                    <td>媒体查询</td>
+                    <td>CSS3</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                
+                <!-- JavaScript -->
+                <tr class="category-header">
+                    <td colspan="5">JavaScript</td>
+                </tr>
+                <tr class="level-1" data-category="JavaScript" data-level="1">
+                    <td>JavaScript 基础语法</td>
+                    <td>JavaScript</td>
+                    <td>1</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-2" data-category="JavaScript" data-level="2">
+                    <td>DOM 与 BOM</td>
+                    <td>JavaScript</td>
+                    <td>2</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="JavaScript" data-level="3">
+                    <td>JavaScript 内置对象</td>
+                    <td>JavaScript</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-5" data-category="JavaScript" data-level="5">
+                    <td>JavaScript 事件</td>
+                    <td>JavaScript</td>
+                    <td>5</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-5" data-category="JavaScript" data-level="5">
+                    <td>JavaScript AJAX</td>
+                    <td>JavaScript</td>
+                    <td>5</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="JavaScript" data-level="3">
+                    <td>正则表达式</td>
+                    <td>JavaScript</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                
+                <!-- ES6+TS -->
+                <tr class="category-header">
+                    <td colspan="5">ES6+TS</td>
+                </tr>
+                <tr class="level-1" data-category="ES6" data-level="1">
+                    <td>let 和 const 命令</td>
+                    <td>ES6+TS</td>
+                    <td>1</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-2" data-category="ES6" data-level="2">
+                    <td>class</td>
+                    <td>ES6+TS</td>
+                    <td>2</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="ES6" data-level="3">
+                    <td>set 和 map</td>
+                    <td>ES6+TS</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-4" data-category="ES6" data-level="4">
+                    <td>Proxy</td>
+                    <td>ES6+TS</td>
+                    <td>4</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-5" data-category="ES6" data-level="5">
+                    <td>字符串、函数、数组和对象的扩展</td>
+                    <td>ES6+TS</td>
+                    <td>5</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-5" data-category="ES6" data-level="5">
+                    <td>异步编程与模块化</td>
+                    <td>ES6+TS</td>
+                    <td>5</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                
+                <!-- Axios -->
+                <tr class="category-header">
+                    <td colspan="5">Axios</td>
+                </tr>
+                <tr class="level-2" data-category="Axios" data-level="2">
+                    <td>Axios API</td>
+                    <td>Axios</td>
+                    <td>2</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="Axios" data-level="3">
+                    <td>Axios 实例</td>
+                    <td>Axios</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="Axios" data-level="3">
+                    <td>请求配置</td>
+                    <td>Axios</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="Axios" data-level="3">
+                    <td>默认配置</td>
+                    <td>Axios</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-5" data-category="Axios" data-level="5">
+                    <td>拦截器</td>
+                    <td>Axios</td>
+                    <td>5</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                
+                <!-- Vue.js -->
+                <tr class="category-header">
+                    <td colspan="5">Vue.js</td>
+                </tr>
+                <tr class="level-2" data-category="Vue.js" data-level="2">
+                    <td>Vue 核心语法</td>
+                    <td>Vue.js</td>
+                    <td>2</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-5" data-category="Vue.js" data-level="5">
+                    <td>Vue 组件化开发</td>
+                    <td>Vue.js</td>
+                    <td>5</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-2" data-category="Vue.js" data-level="2">
+                    <td>vue-router(v4.x)</td>
+                    <td>Vue.js</td>
+                    <td>2</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-2" data-category="Vue.js" data-level="2">
+                    <td>pinia 使用</td>
+                    <td>Vue.js</td>
+                    <td>2</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                
+                <!-- ElementPlus -->
+                <tr class="category-header">
+                    <td colspan="5">ElementPlus</td>
+                </tr>
+                <tr class="level-1" data-category="ElementPlus" data-level="1">
+                    <td>基础组件的使用</td>
+                    <td>ElementPlus</td>
+                    <td>1</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-1" data-category="ElementPlus" data-level="1">
+                    <td>表单和表格组件</td>
+                    <td>ElementPlus</td>
+                    <td>1</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-1" data-category="ElementPlus" data-level="1">
+                    <td>反馈组件</td>
+                    <td>ElementPlus</td>
+                    <td>1</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-1" data-category="ElementPlus" data-level="1">
+                    <td>导航组件</td>
+                    <td>ElementPlus</td>
+                    <td>1</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="ElementPlus" data-level="3">
+                    <td>组件的二次封装</td>
+                    <td>ElementPlus</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                
+                <!-- ECharts -->
+                <tr class="category-header">
+                    <td colspan="5">ECharts</td>
+                </tr>
+                <tr class="level-1" data-category="ECharts" data-level="1">
+                    <td>ECharts 基础语法</td>
+                    <td>ECharts</td>
+                    <td>1</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-1" data-category="ECharts" data-level="1">
+                    <td>ECharts 绘制图表</td>
+                    <td>ECharts</td>
+                    <td>1</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="ECharts" data-level="3">
+                    <td>ECharts 异步数据加载和更新</td>
+                    <td>ECharts</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-1" data-category="ECharts" data-level="1">
+                    <td>ECharts 交互组件</td>
+                    <td>ECharts</td>
+                    <td>1</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="ECharts" data-level="3">
+                    <td>ECharts 事件处理</td>
+                    <td>ECharts</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                
+                <!-- Node.js -->
+                <tr class="category-header">
+                    <td colspan="5">Node.js</td>
+                </tr>
+                <tr class="level-1" data-category="Node.js" data-level="1">
+                    <td>Node.js 基础</td>
+                    <td>Node.js</td>
+                    <td>1</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="Node.js" data-level="3">
+                    <td>内置模块使用(fs、http 等)</td>
+                    <td>Node.js</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="footer">
+            <p>坚持每天学习，成为前端大师！进度会自动保存在浏览器中</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const table = document.getElementById('learningTable');
+            const checkboxes = document.querySelectorAll('.completed-checkbox');
+            const hideCompletedCheckbox = document.getElementById('hideCompleted');
+            const categoryFilter = document.getElementById('categoryFilter');
+            const levelFilter = document.getElementById('levelFilter');
+            const resetButton = document.getElementById('resetButton');
+            
+            // 统计元素
+            const totalItemsElem = document.getElementById('totalItems');
+            const completedItemsElem = document.getElementById('completedItems');
+            const completionRateElem = document.getElementById('completionRate');
+            const last7DaysElem = document.getElementById('last7Days');
+            
+            // 初始化
+            const totalItems = checkboxes.length;
+            totalItemsElem.textContent = totalItems;
+            
+            // 从localStorage加载状态
+            checkboxes.forEach((checkbox, index) => {
+                const savedState = localStorage.getItem(`techItem-${index}`);
+                if (savedState) {
+                    const data = JSON.parse(savedState);
+                    checkbox.checked = data.checked;
+                    if (data.checked && data.date) {
+                        const dateCell = checkbox.parentElement.nextElementSibling;
+                        dateCell.textContent = formatDate(new Date(data.date));
+                    }
+                }
+                
+                // 添加事件监听器
+                checkbox.addEventListener('change', function() {
+                    const dateCell = this.parentElement.nextElementSibling;
+                    if (this.checked) {
+                        const now = new Date();
+                        dateCell.textContent = formatDate(now);
+                        localStorage.setItem(`techItem-${index}`, JSON.stringify({
+                            checked: true,
+                            date: now.getTime()
+                        }));
+                    } else {
+                        dateCell.textContent = '';
+                        localStorage.removeItem(`techItem-${index}`);
+                    }
+                    updateStats();
+                    applyFilters();
+                });
+            });
+            
+            // 更新统计信息
+            function updateStats() {
+                const completed = document.querySelectorAll('.completed-checkbox:checked').length;
+                const completionRate = Math.round((completed / totalItems) * 100);
+                
+                completedItemsElem.textContent = completed;
+                completionRateElem.textContent = `${completionRate}%`;
+                
+                // 计算最近7天完成的项目
+                const oneWeekAgo = new Date();
+                oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+                
+                let recentCompleted = 0;
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        const index = Array.from(checkboxes).indexOf(checkbox);
+                        const savedState = localStorage.getItem(`techItem-${index}`);
+                        if (savedState) {
+                            const data = JSON.parse(savedState);
+                            if (data.date && new Date(data.date) >= oneWeekAgo) {
+                                recentCompleted++;
+                            }
+                        }
+                    }
+                });
+                
+                last7DaysElem.textContent = recentCompleted;
+            }
+            
+            // 格式化日期
+            function formatDate(date) {
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                return `${year}-${month}-${day}`;
+            }
+            
+            // 应用过滤器
+            function applyFilters() {
+                const hideCompleted = hideCompletedCheckbox.checked;
+                const category = categoryFilter.value;
+                const level = levelFilter.value;
+                
+                const rows = table.querySelectorAll('tbody tr');
+                rows.forEach(row => {
+                    if (row.classList.contains('category-header')) {
+                        // 始终显示分类标题
+                        row.style.display = '';
+                        return;
+                    }
+                    
+                    let shouldShow = true;
+                    
+                    // 检查是否已完成
+                    if (hideCompleted) {
+                        const checkbox = row.querySelector('.completed-checkbox');
+                        if (checkbox && checkbox.checked) {
+                            shouldShow = false;
+                        }
+                    }
+                    
+                    // 检查分类
+                    if (shouldShow && category !== 'all') {
+                        const rowCategory = row.getAttribute('data-category');
+                        if (rowCategory !== category) {
+                            shouldShow = false;
+                        }
+                    }
+                    
+                    // 检查难度
+                    if (shouldShow && level !== 'all') {
+                        const rowLevel = row.getAttribute('data-level');
+                        if (rowLevel !== level) {
+                            shouldShow = false;
+                        }
+                    }
+                    
+                    row.style.display = shouldShow ? '' : 'none';
+                });
+            }
+            
+            // 添加过滤器事件监听
+            hideCompletedCheckbox.addEventListener('change', applyFilters);
+            categoryFilter.addEventListener('change', applyFilters);
+            levelFilter.addEventListener('change', applyFilters);
+            
+            // 重置按钮
+            resetButton.addEventListener('click', function() {
+                if (confirm('确定要重置所有进度吗？此操作不可撤销。')) {
+                    checkboxes.forEach((checkbox, index) => {
+                        checkbox.checked = false;
+                        const dateCell = checkbox.parentElement.nextElementSibling;
+                        dateCell.textContent = '';
+                        localStorage.removeItem(`techItem-${index}`);
+                    });
+                    updateStats();
+                    applyFilters();
+                }
+            });
+            
+            // 初始更新
+            updateStats();
+        });
+    </script>
+</body>
+</html>
