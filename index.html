@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web前端技术学习打卡表</title>
+    <title>Web前端技术学习打卡表（实验与文档）</title>
     <style>
         * {
             box-sizing: border-box;
@@ -35,7 +35,7 @@
         }
         
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 10px;
         }
         
@@ -175,8 +175,8 @@
 <body>
     <div class="container">
         <header>
-            <h1>Web前端技术学习打卡表</h1>
-            <p class="description">每天学习一项技术，记录你的前端成长之路</p>
+            <h1>Web前端技术学习打卡表（实验与文档）</h1>
+            <p class="description">专注于实验和文档学习内容，每天进步一点点</p>
         </header>
         
         <div class="controls">
@@ -186,15 +186,15 @@
                 </label>
                 <select id="categoryFilter">
                     <option value="all">所有分类</option>
-                    <option value="HTML5">HTML5</option>
-                    <option value="CSS3">CSS3</option>
+                    <option value="HTML+CSS">HTML+CSS</option>
                     <option value="JavaScript">JavaScript</option>
-                    <option value="ES6">ES6+TS</option>
-                    <option value="Axios">Axios</option>
+                    <option value="ES6">ES6</option>
+                    <option value="DOM">DOM</option>
                     <option value="Vue.js">Vue.js</option>
+                    <option value="组件开发">组件开发</option>
                     <option value="ElementPlus">ElementPlus</option>
+                    <option value="Pinia">Pinia</option>
                     <option value="ECharts">ECharts</option>
-                    <option value="Node.js">Node.js</option>
                 </select>
                 <select id="levelFilter">
                     <option value="all">所有难度</option>
@@ -230,7 +230,7 @@
         <table id="learningTable">
             <thead>
                 <tr>
-                    <th>技术点</th>
+                    <th>学习内容</th>
                     <th>分类</th>
                     <th>难度</th>
                     <th class="checkbox-cell">完成</th>
@@ -238,75 +238,126 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- HTML5 -->
+                <!-- HTML+CSS -->
                 <tr class="category-header">
-                    <td colspan="5">HTML5</td>
+                    <td colspan="5">HTML+CSS</td>
                 </tr>
-                <tr class="level-1" data-category="HTML5" data-level="1">
-                    <td>HTML 基本标签</td>
-                    <td>HTML5</td>
+                <tr class="level-1" data-category="HTML+CSS" data-level="1">
+                    <td>【实验】HTML 基本结构</td>
+                    <td>HTML+CSS</td>
                     <td>1</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
-                <tr class="level-2" data-category="HTML5" data-level="2">
-                    <td>HTML5 新特性</td>
-                    <td>HTML5</td>
+                <tr class="level-1" data-category="HTML+CSS" data-level="1">
+                    <td>【实验】行内标签</td>
+                    <td>HTML+CSS</td>
+                    <td>1</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-1" data-category="HTML+CSS" data-level="1">
+                    <td>【实验】块级标签</td>
+                    <td>HTML+CSS</td>
+                    <td>1</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-2" data-category="HTML+CSS" data-level="2">
+                    <td>【实验】图文排版示例</td>
+                    <td>HTML+CSS</td>
                     <td>2</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
-                <tr class="level-3" data-category="HTML5" data-level="3">
-                    <td>HTML5 本地存储</td>
-                    <td>HTML5</td>
-                    <td>3</td>
-                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
-                    <td class="date-cell"></td>
-                </tr>
-                
-                <!-- CSS3 -->
-                <tr class="category-header">
-                    <td colspan="5">CSS3</td>
-                </tr>
-                <tr class="level-1" data-category="CSS3" data-level="1">
-                    <td>CSS 基础语法</td>
-                    <td>CSS3</td>
-                    <td>1</td>
-                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
-                    <td class="date-cell"></td>
-                </tr>
-                <tr class="level-1" data-category="CSS3" data-level="1">
-                    <td>盒子模型</td>
-                    <td>CSS3</td>
-                    <td>1</td>
-                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
-                    <td class="date-cell"></td>
-                </tr>
-                <tr class="level-2" data-category="CSS3" data-level="2">
-                    <td>浮动与定位</td>
-                    <td>CSS3</td>
+                <tr class="level-2" data-category="HTML+CSS" data-level="2">
+                    <td>【实验】语义化标签</td>
+                    <td>HTML+CSS</td>
                     <td>2</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
-                <tr class="level-3" data-category="CSS3" data-level="3">
-                    <td>CSS3 新特性</td>
-                    <td>CSS3</td>
+                <tr class="level-2" data-category="HTML+CSS" data-level="2">
+                    <td>【实验】多媒体标签</td>
+                    <td>HTML+CSS</td>
+                    <td>2</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-2" data-category="HTML+CSS" data-level="2">
+                    <td>【实验】表格标签</td>
+                    <td>HTML+CSS</td>
+                    <td>2</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-2" data-category="HTML+CSS" data-level="2">
+                    <td>【实验】表单标签</td>
+                    <td>HTML+CSS</td>
+                    <td>2</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-2" data-category="HTML+CSS" data-level="2">
+                    <td>【实验】选择器</td>
+                    <td>HTML+CSS</td>
+                    <td>2</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-2" data-category="HTML+CSS" data-level="2">
+                    <td>【实验】文本样式</td>
+                    <td>HTML+CSS</td>
+                    <td>2</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="HTML+CSS" data-level="3">
+                    <td>【实验】盒模型</td>
+                    <td>HTML+CSS</td>
                     <td>3</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
-                <tr class="level-3" data-category="CSS3" data-level="3">
-                    <td>弹性盒子</td>
-                    <td>CSS3</td>
+                <tr class="level-3" data-category="HTML+CSS" data-level="3">
+                    <td>【实验】背景&渐变</td>
+                    <td>HTML+CSS</td>
                     <td>3</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
-                <tr class="level-3" data-category="CSS3" data-level="3">
-                    <td>媒体查询</td>
-                    <td>CSS3</td>
+                <tr class="level-3" data-category="HTML+CSS" data-level="3">
+                    <td>【实验】定位&浮动</td>
+                    <td>HTML+CSS</td>
                     <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="HTML+CSS" data-level="3">
+                    <td>【实验】变换、过渡、动画</td>
+                    <td>HTML+CSS</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="HTML+CSS" data-level="3">
+                    <td>【实验】Flex 布局</td>
+                    <td>HTML+CSS</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="HTML+CSS" data-level="3">
+                    <td>【实验】Grid 布局</td>
+                    <td>HTML+CSS</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-4" data-category="HTML+CSS" data-level="4">
+                    <td>【实验】响应式设计</td>
+                    <td>HTML+CSS</td>
+                    <td>4</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
@@ -316,131 +367,194 @@
                     <td colspan="5">JavaScript</td>
                 </tr>
                 <tr class="level-1" data-category="JavaScript" data-level="1">
-                    <td>JavaScript 基础语法</td>
+                    <td>【实验】数据类型和字面量</td>
+                    <td>JavaScript</td>
+                    <td>1</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-1" data-category="JavaScript" data-level="1">
+                    <td>【实验】运算符</td>
+                    <td>JavaScript</td>
+                    <td>1</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-1" data-category="JavaScript" data-level="1">
+                    <td>【实验】表达式</td>
                     <td>JavaScript</td>
                     <td>1</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
                 <tr class="level-2" data-category="JavaScript" data-level="2">
-                    <td>DOM 与 BOM</td>
+                    <td>【实验】分支与循环</td>
+                    <td>JavaScript</td>
+                    <td>2</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-2" data-category="JavaScript" data-level="2">
+                    <td>【实验】函数</td>
                     <td>JavaScript</td>
                     <td>2</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
                 <tr class="level-3" data-category="JavaScript" data-level="3">
-                    <td>JavaScript 内置对象</td>
+                    <td>【实验】Array & String 对象</td>
                     <td>JavaScript</td>
                     <td>3</td>
-                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
-                    <td class="date-cell"></td>
-                </tr>
-                <tr class="level-5" data-category="JavaScript" data-level="5">
-                    <td>JavaScript 事件</td>
-                    <td>JavaScript</td>
-                    <td>5</td>
-                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
-                    <td class="date-cell"></td>
-                </tr>
-                <tr class="level-5" data-category="JavaScript" data-level="5">
-                    <td>JavaScript AJAX</td>
-                    <td>JavaScript</td>
-                    <td>5</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
                 <tr class="level-3" data-category="JavaScript" data-level="3">
-                    <td>正则表达式</td>
+                    <td>【实验】Math & Date 对象</td>
                     <td>JavaScript</td>
                     <td>3</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
-                
-                <!-- ES6+TS -->
-                <tr class="category-header">
-                    <td colspan="5">ES6+TS</td>
+                <tr class="level-4" data-category="JavaScript" data-level="4">
+                    <td>【实验】正则表达式</td>
+                    <td>JavaScript</td>
+                    <td>4</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
                 </tr>
-                <tr class="level-1" data-category="ES6" data-level="1">
-                    <td>let 和 const 命令</td>
-                    <td>ES6+TS</td>
-                    <td>1</td>
+                
+                <!-- ES6 -->
+                <tr class="category-header">
+                    <td colspan="5">ES6</td>
+                </tr>
+                <tr class="level-2" data-category="ES6" data-level="2">
+                    <td>【实验】String 对象</td>
+                    <td>ES6</td>
+                    <td>2</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
                 <tr class="level-2" data-category="ES6" data-level="2">
-                    <td>class</td>
-                    <td>ES6+TS</td>
+                    <td>【实验】Array 对象的扩展</td>
+                    <td>ES6</td>
                     <td>2</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
                 <tr class="level-3" data-category="ES6" data-level="3">
-                    <td>set 和 map</td>
-                    <td>ES6+TS</td>
+                    <td>【实验】函数的扩展</td>
+                    <td>ES6</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="ES6" data-level="3">
+                    <td>【实验】面向对象编程</td>
+                    <td>ES6</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="ES6" data-level="3">
+                    <td>【实验】Set 和 Map</td>
+                    <td>ES6</td>
                     <td>3</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
                 <tr class="level-4" data-category="ES6" data-level="4">
-                    <td>Proxy</td>
-                    <td>ES6+TS</td>
+                    <td>【实验】Promise</td>
+                    <td>ES6</td>
                     <td>4</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
-                <tr class="level-5" data-category="ES6" data-level="5">
-                    <td>字符串、函数、数组和对象的扩展</td>
-                    <td>ES6+TS</td>
-                    <td>5</td>
-                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
-                    <td class="date-cell"></td>
-                </tr>
-                <tr class="level-5" data-category="ES6" data-level="5">
-                    <td>异步编程与模块化</td>
-                    <td>ES6+TS</td>
-                    <td>5</td>
+                <tr class="level-4" data-category="ES6" data-level="4">
+                    <td>【实验】Proxy</td>
+                    <td>ES6</td>
+                    <td>4</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
                 
-                <!-- Axios -->
+                <!-- DOM -->
                 <tr class="category-header">
-                    <td colspan="5">Axios</td>
+                    <td colspan="5">DOM</td>
                 </tr>
-                <tr class="level-2" data-category="Axios" data-level="2">
-                    <td>Axios API</td>
-                    <td>Axios</td>
+                <tr class="level-2" data-category="DOM" data-level="2">
+                    <td>【实验】BOM操作</td>
+                    <td>DOM</td>
                     <td>2</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
-                <tr class="level-3" data-category="Axios" data-level="3">
-                    <td>Axios 实例</td>
-                    <td>Axios</td>
+                <tr class="level-2" data-category="DOM" data-level="2">
+                    <td>【实验】定时器</td>
+                    <td>DOM</td>
+                    <td>2</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-2" data-category="DOM" data-level="2">
+                    <td>【实验】本地存储</td>
+                    <td>DOM</td>
+                    <td>2</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="DOM" data-level="3">
+                    <td>【实验】异步编程（XHR、fetch、Axios）</td>
+                    <td>DOM</td>
                     <td>3</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
-                <tr class="level-3" data-category="Axios" data-level="3">
-                    <td>请求配置</td>
-                    <td>Axios</td>
+                <tr class="level-3" data-category="DOM" data-level="3">
+                    <td>【实验】DOM 操作</td>
+                    <td>DOM</td>
                     <td>3</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
-                <tr class="level-3" data-category="Axios" data-level="3">
-                    <td>默认配置</td>
-                    <td>Axios</td>
+                <tr class="level-3" data-category="DOM" data-level="3">
+                    <td>【实验】事件处理</td>
+                    <td>DOM</td>
                     <td>3</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
-                <tr class="level-5" data-category="Axios" data-level="5">
-                    <td>拦截器</td>
-                    <td>Axios</td>
-                    <td>5</td>
+                <tr class="level-3" data-category="DOM" data-level="3">
+                    <td>【实验】题目讲解：实现类型判断</td>
+                    <td>DOM</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="DOM" data-level="3">
+                    <td>【实验】知识讲解：this</td>
+                    <td>DOM</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="DOM" data-level="3">
+                    <td>【实验】多媒体</td>
+                    <td>DOM</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="DOM" data-level="3">
+                    <td>【实验】表格应用</td>
+                    <td>DOM</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="DOM" data-level="3">
+                    <td>【实验】表单应用</td>
+                    <td>DOM</td>
+                    <td>3</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
@@ -449,31 +563,176 @@
                 <tr class="category-header">
                     <td colspan="5">Vue.js</td>
                 </tr>
+                <tr class="level-1" data-category="Vue.js" data-level="1">
+                    <td>【实验】初识 Vue.js</td>
+                    <td>Vue.js</td>
+                    <td>1</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-1" data-category="Vue.js" data-level="1">
+                    <td>【实验】Vue.js 初体验</td>
+                    <td>Vue.js</td>
+                    <td>1</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
                 <tr class="level-2" data-category="Vue.js" data-level="2">
-                    <td>Vue 核心语法</td>
+                    <td>【实验】MVVM 设计模式</td>
                     <td>Vue.js</td>
                     <td>2</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
-                <tr class="level-5" data-category="Vue.js" data-level="5">
-                    <td>Vue 组件化开发</td>
-                    <td>Vue.js</td>
-                    <td>5</td>
-                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
-                    <td class="date-cell"></td>
-                </tr>
                 <tr class="level-2" data-category="Vue.js" data-level="2">
-                    <td>vue-router(v4.x)</td>
+                    <td>【实验】插值表达式</td>
                     <td>Vue.js</td>
                     <td>2</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
                 <tr class="level-2" data-category="Vue.js" data-level="2">
-                    <td>pinia 使用</td>
+                    <td>【实验】常用指令</td>
                     <td>Vue.js</td>
                     <td>2</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-2" data-category="Vue.js" data-level="2">
+                    <td>【实验】响应式属性</td>
+                    <td>Vue.js</td>
+                    <td>2</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-2" data-category="Vue.js" data-level="2">
+                    <td>【实验】事件处理</td>
+                    <td>Vue.js</td>
+                    <td>2</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="Vue.js" data-level="3">
+                    <td>【实验】生命周期</td>
+                    <td>Vue.js</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="Vue.js" data-level="3">
+                    <td>【实验】计算属性</td>
+                    <td>Vue.js</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="Vue.js" data-level="3">
+                    <td>【实验】侦听器</td>
+                    <td>Vue.js</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="Vue.js" data-level="3">
+                    <td>【实验】条件渲染</td>
+                    <td>Vue.js</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="Vue.js" data-level="3">
+                    <td>【实验】列表渲染</td>
+                    <td>Vue.js</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="Vue.js" data-level="3">
+                    <td>【实验】模板引用</td>
+                    <td>Vue.js</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="Vue.js" data-level="3">
+                    <td>【实验】样式绑定</td>
+                    <td>Vue.js</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="Vue.js" data-level="3">
+                    <td>【实验】表单绑定</td>
+                    <td>Vue.js</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                
+                <!-- 组件开发 -->
+                <tr class="category-header">
+                    <td colspan="5">组件开发</td>
+                </tr>
+                <tr class="level-3" data-category="组件开发" data-level="3">
+                    <td>【实验】组件注册</td>
+                    <td>组件开发</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="组件开发" data-level="3">
+                    <td>【实验】组件 Prop</td>
+                    <td>组件开发</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="组件开发" data-level="3">
+                    <td>【实验】组件事件</td>
+                    <td>组件开发</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="组件开发" data-level="3">
+                    <td>【实验】组件 v-model</td>
+                    <td>组件开发</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="组件开发" data-level="3">
+                    <td>【实验】透传 Attr</td>
+                    <td>组件开发</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="组件开发" data-level="3">
+                    <td>【实验】组件插槽</td>
+                    <td>组件开发</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-4" data-category="组件开发" data-level="4">
+                    <td>【实验】依赖注入</td>
+                    <td>组件开发</td>
+                    <td>4</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-4" data-category="组件开发" data-level="4">
+                    <td>【实验】选项式 API</td>
+                    <td>组件开发</td>
+                    <td>4</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-4" data-category="组件开发" data-level="4">
+                    <td>【实验】单文件组件</td>
+                    <td>组件开发</td>
+                    <td>4</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
@@ -482,38 +741,50 @@
                 <tr class="category-header">
                     <td colspan="5">ElementPlus</td>
                 </tr>
-                <tr class="level-1" data-category="ElementPlus" data-level="1">
-                    <td>基础组件的使用</td>
+                <tr class="level-2" data-category="ElementPlus" data-level="2">
+                    <td>【实验】Element Plus</td>
                     <td>ElementPlus</td>
-                    <td>1</td>
+                    <td>2</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
-                <tr class="level-1" data-category="ElementPlus" data-level="1">
-                    <td>表单和表格组件</td>
+                <tr class="level-2" data-category="ElementPlus" data-level="2">
+                    <td>【实验】Plus 版本的安装和使用</td>
                     <td>ElementPlus</td>
-                    <td>1</td>
-                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
-                    <td class="date-cell"></td>
-                </tr>
-                <tr class="level-1" data-category="ElementPlus" data-level="1">
-                    <td>反馈组件</td>
-                    <td>ElementPlus</td>
-                    <td>1</td>
-                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
-                    <td class="date-cell"></td>
-                </tr>
-                <tr class="level-1" data-category="ElementPlus" data-level="1">
-                    <td>导航组件</td>
-                    <td>ElementPlus</td>
-                    <td>1</td>
+                    <td>2</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
                 <tr class="level-3" data-category="ElementPlus" data-level="3">
-                    <td>组件的二次封装</td>
+                    <td>【实验】Vue-Router 路由管理器</td>
                     <td>ElementPlus</td>
                     <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                
+                <!-- Pinia -->
+                <tr class="category-header">
+                    <td colspan="5">Pinia</td>
+                </tr>
+                <tr class="level-2" data-category="Pinia" data-level="2">
+                    <td>【实验】初识 Pinia</td>
+                    <td>Pinia</td>
+                    <td>2</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-3" data-category="Pinia" data-level="3">
+                    <td>【实验】Pinia 核心概念</td>
+                    <td>Pinia</td>
+                    <td>3</td>
+                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
+                    <td class="date-cell"></td>
+                </tr>
+                <tr class="level-4" data-category="Pinia" data-level="4">
+                    <td>【实验】Pinia 综合应用</td>
+                    <td>Pinia</td>
+                    <td>4</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
@@ -522,56 +793,37 @@
                 <tr class="category-header">
                     <td colspan="5">ECharts</td>
                 </tr>
-                <tr class="level-1" data-category="ECharts" data-level="1">
-                    <td>ECharts 基础语法</td>
+                <tr class="level-2" data-category="ECharts" data-level="2">
+                    <td>【实验】认识 ECharts</td>
                     <td>ECharts</td>
-                    <td>1</td>
+                    <td>2</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
-                <tr class="level-1" data-category="ECharts" data-level="1">
-                    <td>ECharts 绘制图表</td>
+                <tr class="level-2" data-category="ECharts" data-level="2">
+                    <td>【实验】基础知识介绍</td>
                     <td>ECharts</td>
-                    <td>1</td>
+                    <td>2</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
                 <tr class="level-3" data-category="ECharts" data-level="3">
-                    <td>ECharts 异步数据加载和更新</td>
+                    <td>【实验】基本图表绘制</td>
                     <td>ECharts</td>
                     <td>3</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
-                <tr class="level-1" data-category="ECharts" data-level="1">
-                    <td>ECharts 交互组件</td>
-                    <td>ECharts</td>
-                    <td>1</td>
-                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
-                    <td class="date-cell"></td>
-                </tr>
                 <tr class="level-3" data-category="ECharts" data-level="3">
-                    <td>ECharts 事件处理</td>
+                    <td>【实验】异步数据加载</td>
                     <td>ECharts</td>
                     <td>3</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
                 </tr>
-                
-                <!-- Node.js -->
-                <tr class="category-header">
-                    <td colspan="5">Node.js</td>
-                </tr>
-                <tr class="level-1" data-category="Node.js" data-level="1">
-                    <td>Node.js 基础</td>
-                    <td>Node.js</td>
-                    <td>1</td>
-                    <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
-                    <td class="date-cell"></td>
-                </tr>
-                <tr class="level-3" data-category="Node.js" data-level="3">
-                    <td>内置模块使用(fs、http 等)</td>
-                    <td>Node.js</td>
+                <tr class="level-3" data-category="ECharts" data-level="3">
+                    <td>【实验】事件处理</td>
+                    <td>ECharts</td>
                     <td>3</td>
                     <td class="checkbox-cell"><input type="checkbox" class="completed-checkbox"></td>
                     <td class="date-cell"></td>
@@ -580,7 +832,7 @@
         </table>
         
         <div class="footer">
-            <p>坚持每天学习，成为前端大师！进度会自动保存在浏览器中</p>
+            <p>专注于实验和文档学习内容，坚持每天学习，成为前端大师！进度会自动保存在浏览器中</p>
         </div>
     </div>
 
